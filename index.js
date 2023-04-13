@@ -1,13 +1,22 @@
-console.log("hello")
-const div = document.querySelector("div")
-const numbers= [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-function callingnumber(){
-    for(let i = 0; i< numbers.length; i++){
-        const nums = numbers[i]
-        console.log(nums)
-        const list = document.createElement('li')
-        div.append(list)
-        list.append(nums)
+// Use the `setInterval` (see [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/setInterval#examples)) function along with the DOM functions to implement a simple page that displays a countdown from "10". When the page opens, 10 should be displayed. After a second, it should change to 9, then to 8, etc. Once the countdown reaches 0, the text should turn red and the countdown should stop.
+
+let count = 10;
+let intervalId = undefined
+
+const div = document.querySelector("div");
+div.innerText = count;
+
+document.body.append(div)
+
+function countdown() {
+   count = count - 1
+    
+    if (count === 0) {
+        console.log("Stop!")
+       clearInterval(intervalId)
     }
+    div.innerText = count;
 }
-callingnumber()
+ intervalId = setInterval(countdown, 1000)
+
+
