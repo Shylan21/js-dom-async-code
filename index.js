@@ -20,3 +20,6 @@ function countdown() {
  intervalId = setInterval(countdown, 1000)
 
 
+// call a function when you ant the result of the function to be passed onto other function
+
+// don't call the function when the other function is expecting to be given a function to call (other function takes care of calling the function)
